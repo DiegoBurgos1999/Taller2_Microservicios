@@ -16,5 +16,6 @@
                 <p>{{ $paseo->fecha }}</p>
             @endforeach
         </div>
+     
     </body>
 </html>

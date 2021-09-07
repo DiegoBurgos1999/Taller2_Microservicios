@@ -19,6 +19,9 @@ Route::get('/', function () {
 
 Route::get('/home', '\App\Http\Controllers\PagesController@inicio');
 Route::get('/paseos','\App\Http\Controllers\PagesController@index');
-Route::get('/paseos/{id}','\App\Http\Controllers\PagesController@eliminar');
+Route::get('/paseos/eliminacion/{id}','\App\Http\Controllers\PagesController@eliminar');
+Route::get('/paseos/edicion/{id}/{salida}/{llegada}', '\App\Http\Controllers\PagesController@editar');
+
+
 
 

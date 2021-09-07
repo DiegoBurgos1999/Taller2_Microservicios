@@ -31,7 +31,12 @@ class PagesController extends Controller
         $cuerpo = $this->cliente->delete('paseos/'.$id);
         $respuesta = $cuerpo->getBody();
         return view('productoEliminado',['respuesta' => $respuesta]);
-        
+    }
+    public function editar($id,$salida,$llegada){
+        $this->cliente = new Client(['base_uri' => 'http://localhost:8081/myapp/myresource/']);
+        $cuerpo = $this->cliente->put('paseos/'.$id.'/'.$salida.'/'.$llegada);
+        $respuesta = $cuerpo->getBody();
+        return view('edicionProducto',['respuesta' => $respuesta]);
     }
 
     

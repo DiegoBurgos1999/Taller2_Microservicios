@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -190,8 +191,81 @@ public class MyResource {
         }else{
             return "No existe el id";
         }
+    }
 
+    @PUT
+    @Path("paseos/{id}/{salida}/{llegada}")
+    public String editPaseo(@PathParam("id") Long identificador, @PathParam("salida") String nueva_salida, @PathParam("llegada") String nueva_llegada){
 
+        ArrayList<Paseo> paseos = new ArrayList<Paseo>();
+        JSONParser parser = new JSONParser();
+        boolean bandera = false;
+
+        try {    
+            Object obj = parser.parse(new FileReader("src/main/java/co/edu/javeriana/Recursos/Paseos.json"));
+
+            JSONObject jsonObject =  (JSONObject) obj;
+            JSONArray paseosJSON = (JSONArray) jsonObject.get("paseos");
+            
+            
+            for (int i=0; i< paseosJSON.size(); i++){
+                JSONObject paseoJSON = (JSONObject)paseosJSON.get(i);
+                Long id = (Long) paseoJSON.get("identificador");
+                if(id == identificador){
+                    bandera=true;
+                    String nombre = (String) paseoJSON.get("nombre");
+                    String fecha = (String) paseoJSON.get("fecha");
+                    Paseo paseo = new Paseo();
+                    paseo.setIdentificador(id);
+                    paseo.setNombre(nombre);
+                    paseo.setLugar_salida(nueva_salida);
+                    paseo.setLugar_llegada(nueva_llegada);
+                    paseo.setFecha(fecha);
+                    paseos.add(paseo);
+                }else{
+                    String nombre = (String) paseoJSON.get("nombre");
+                    String lugar_salida = (String) paseoJSON.get("lugar_salida");
+                    String lugar_llegada = (String) paseoJSON.get("lugar_llegada");
+                    String fecha = (String) paseoJSON.get("fecha");
+    
+                    Paseo paseo = new Paseo();
+                    paseo.setIdentificador(id);
+                    paseo.setNombre(nombre);
+                    paseo.setLugar_salida(lugar_salida);
+                    paseo.setLugar_llegada(lugar_llegada);
+                    paseo.setFecha(fecha);
+    
+                    paseos.add(paseo);
+                }
+
+              }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if(bandera){
+            String json = "{ \"paseos\": ";
+            json += new Gson().toJson(paseos);
+            json += "}";
+            
+            try {
+
+                FileWriter file = new FileWriter("src/main/java/co/edu/javeriana/Recursos/Paseos.json");
+                file.write(json);
+                file.flush();
+                file.close();
+
+            } catch (IOException e) {
+                //manejar error
+            }
+            return "Producto editado exitosamente";
+        }else{
+            return "No existe el id";
+        }
     }
 
 
