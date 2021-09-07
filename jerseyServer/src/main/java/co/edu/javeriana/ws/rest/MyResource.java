@@ -1,10 +1,7 @@
 package co.edu.javeriana.ws.rest;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import javax.json.JsonObject;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -25,7 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
+
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -128,11 +125,12 @@ public class MyResource {
 
 
     @DELETE
-    @Path("paseos")
-    public String deletePaseo(@QueryParam("id") Long identificador){
+    @Path("paseos/{id}")
+    public String deletePaseo(@PathParam("id") Long identificador){
 
         ArrayList<Paseo> paseos = new ArrayList<Paseo>();
         JSONParser parser = new JSONParser();
+        boolean bandera = false;
 
         try {    
             Object obj = parser.parse(new FileReader("src/main/java/co/edu/javeriana/Recursos/Paseos.json"));
@@ -140,9 +138,13 @@ public class MyResource {
             JSONObject jsonObject =  (JSONObject) obj;
             JSONArray paseosJSON = (JSONArray) jsonObject.get("paseos");
             
+            
             for (int i=0; i< paseosJSON.size(); i++){
                 JSONObject paseoJSON = (JSONObject)paseosJSON.get(i);
                 Long id = (Long) paseoJSON.get("identificador");
+                if(id == identificador){
+                    bandera=true;
+                }
                 if(id != identificador){
                     String nombre = (String) paseoJSON.get("nombre");
                     String lugar_salida = (String) paseoJSON.get("lugar_salida");
@@ -169,23 +171,27 @@ public class MyResource {
             e.printStackTrace();
         }
 
-        String json = "{ \"paseos\": ";
-        json += new Gson().toJson(paseos);
-        json += "}";
-        
-        try {
+        if(bandera){
+            String json = "{ \"paseos\": ";
+            json += new Gson().toJson(paseos);
+            json += "}";
+            
+            try {
 
-			FileWriter file = new FileWriter("src/main/java/co/edu/javeriana/Recursos/Paseos.json");
-			file.write(json);
-			file.flush();
-			file.close();
+                FileWriter file = new FileWriter("src/main/java/co/edu/javeriana/Recursos/Paseos.json");
+                file.write(json);
+                file.flush();
+                file.close();
 
-		} catch (IOException e) {
-			//manejar error
-		}
+            } catch (IOException e) {
+                //manejar error
+            }
+            return "Producto eliminado";
+        }else{
+            return "No existe el id";
+        }
 
 
-        return "Elemento eliminado";
     }
 
 

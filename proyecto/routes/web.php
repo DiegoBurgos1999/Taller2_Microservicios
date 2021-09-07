@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', '\App\Http\Controllers\PagesController@inicio');
-Route::resource('/rest','\App\Http\Controllers\restController');
-Route::resource('/paseos','\App\Http\Controllers\paseosController');
+Route::get('/paseos','\App\Http\Controllers\PagesController@index');
+Route::get('/paseos/{id}','\App\Http\Controllers\PagesController@eliminar');
 
 
