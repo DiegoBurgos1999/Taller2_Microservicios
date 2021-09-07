@@ -9,7 +9,11 @@
         <h1>Paseos</h1>
         <div>
             @foreach ($paseos as $paseo)
+                <p>{{ $paseo->identificador }}</p>
                 <p>{{ $paseo->nombre }}</p>
+                <p>{{ $paseo->lugar_salida }}</p>
+                <p>{{ $paseo->lugar_llegada }}</p>
+                <p>{{ $paseo->fecha }}</p>
             @endforeach
         </div>
     </body>
