@@ -1,0 +1,64 @@
+{
+    "operaciones": [
+        {
+            "nombre": "suma",
+            "fecha": "10/10/21",
+            "user": "gabriel"
+        },
+        {
+            "nombre": "resta",
+            "fecha": "10/10/21",
+            "user": "diego"
+        },
+        {
+            "nombre": "suma",
+            "fecha": "Tue Sep 07 22:43:36 COT 2021",
+            "user": "nilocai"
+        },
+        {
+            "nombre": "suma",
+            "fecha": "Tue Sep 07 22:43:57 COT 2021",
+            "user": "joaquin"
+        },
+        {
+            "nombre": "suma",
+            "fecha": "Tue Sep 07 22:44:14 COT 2021",
+            "user": "juanpa"
+        },
+        {
+            "nombre": "suma",
+            "fecha": "Tue Sep 07 22:44:29 COT 2021",
+            "user": "esteban"
+        },
+        {
+            "nombre": "suma",
+            "fecha": "Tue Sep 07 22:51:47 COT 2021",
+            "user": "santiago"
+        },
+        {
+            "nombre": "resta",
+            "fecha": "Tue Sep 07 22:52:03 COT 2021",
+            "user": "juan"
+        },
+        {
+            "nombre": "multiplicacion",
+            "fecha": "Tue Sep 07 22:52:22 COT 2021",
+            "user": "nico"
+        },
+        {
+            "nombre": "division",
+            "fecha": "Tue Sep 07 22:52:40 COT 2021",
+            "user": "esteban"
+        },
+        {
+            "nombre": "division",
+            "fecha": "Tue Sep 07 22:53:00 COT 2021",
+            "user": "esteban"
+        },
+        {
+            "nombre": "suma",
+            "fecha": "Tue Sep 07 23:40:53 COT 2021",
+            "user": "gabo"
+        }
+    ]
+}
