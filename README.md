@@ -10,5 +10,14 @@ Para la parte 1 del taller, este se encuentra en las carpetas "jerseyServer" y "
 
 # Parte 2
 Para la parte 2 del taller, se encuentra en la carpeta "Micro2".<br>
-Este proyecto no tiene comentarios importantes de configuracion, al clonarlo puede ejecutarlo de la manera vista en clase.
+Este proyecto no tiene comentarios importantes de configuración, al clonarlo puede ejecutarlo de la manera vista en clase.
+
+# Integrantes
+<ul>
+  <li>Gabriel Gomez</li>
+  <li>Diego Andres Burgos</li>
+  <li>Juan Pablo Mendez</li>
+  <li>Nicolai Barrera</li>
+  <li>Esteban Hernandez</li>
+</ul>
 
