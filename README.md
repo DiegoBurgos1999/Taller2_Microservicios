@@ -1,4 +1,5 @@
 # Taller2_Microservicios
+Taller #2 temas: REST y Microservicios.
 
 # Parte 1 
 Para la parte 1 del taller, este se encuentra en las carpetas "jerseyServer" y "proyecto". <br>
