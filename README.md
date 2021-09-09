@@ -18,6 +18,6 @@ Este proyecto no tiene comentarios importantes de configuración, al clonarlo pu
   <li>Diego Andres Burgos</li>
   <li>Juan Pablo Mendez</li>
   <li>Nicolai Barrera</li>
-  <li>Esteban Hernandez</li>
+  <li>Esteban Pedraza</li>
 </ul>
 
